@@ -3,7 +3,7 @@ import WebGL from 'https://cdn.jsdelivr.net/npm/three@0.164.0/examples/jsm/capab
 import { Viewer } from './viewer.js';
 import { SimpleDropzone } from 'https://cdn.jsdelivr.net/npm/simple-dropzone@1.0.0/+esm';
 import { Validator } from './validator.js';
-import { Footer } from './components/footer.js';
+import { Footer } from './components/footer.jsx';
 import queryString from 'https://cdn.jsdelivr.net/npm/query-string@7.1.1/+esm';
 
 window.THREE = THREE;
