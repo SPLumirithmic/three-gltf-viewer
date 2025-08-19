@@ -318,3 +318,36 @@ footer .separator {
     opacity: 0;
   }
 }
+
+/*_____________________________________________
+load from URL Button
+
+ */
+
+/* URL button container */
+.url-button {
+  margin: 1rem 0;
+  text-align: center;
+}
+
+/* Button styling */
+.url-button button {
+  background-color: #007bff;
+  color: white;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+/* Hover & active states */
+.url-button button:hover {
+  background-color: #0056b3;
+}
+
+.url-button button:active {
+  transform: scale(0.97);
+}

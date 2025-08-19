@@ -1,10 +1,10 @@
-import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.164.0/build/three.module.js';
-import WebGL from 'https://cdn.jsdelivr.net/npm/three@0.164.0/examples/jsm/capabilities/WebGL.js';
+import * as THREE from 'three';
+import WebGL from 'three/addons/capabilities/WebGL.js';
 import { Viewer } from './viewer.js';
-import { SimpleDropzone } from 'https://cdn.jsdelivr.net/npm/simple-dropzone@1.0.0/+esm';
+import { SimpleDropzone } from 'simple-dropzone';
 import { Validator } from './validator.js';
-import { Footer } from './components/footer.jsx';
-import queryString from 'https://cdn.jsdelivr.net/npm/query-string@7.1.1/+esm';
+import { Footer } from './components/footer';
+import queryString from 'query-string';
 
 window.THREE = THREE;
 window.VIEWER = {};
@@ -75,6 +75,24 @@ class App {
 		return this.viewer;
 	}
 
+	/**
+	 * Loads a model directly from a remote URL.
+	 * @param {string} modelURL - The URL to the .gltf or .glb file
+	 */
+	loadFromUrl(modelURL) {
+		if (!modelURL.match(/\.(gltf|glb)$/)) {
+			this.onError('Provided URL does not point to a .gltf or .glb file.');
+			return;
+		}
+
+
+		console.info('button is clicked now it should show');
+
+
+		this.showSpinner();
+		this.view(modelURL, '', new Map());
+	}
+	
 	/**
 	 * Loads a fileset provided by user action.
 	 * @param  {Map<string, File>} fileMap
@@ -159,5 +177,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	window.VIEWER.app = app;
 
-	console.info('[glTF Viewer] Debugging data exported as `window.VIEWER`.');
+	const urlBtn = document.getElementById('loadUrlBtn');
+
+	urlBtn.addEventListener('click', () => {
+
+		console.info('button event addded');
+
+
+		// Example: hardcoded model
+		const modelURL = 'https://raw.githubusercontent.com/SPLumirithmic/three-gltf-viewer/main/public/Mesh/Jay.glb';
+		if (modelURL) app.loadFromUrl(modelURL);
+	});
+	
+		console.info('[glTF Viewer] Debugging data exported as `window.VIEWER`.');
 });
