@@ -1,10 +1,10 @@
-import * as THREE from 'three';
-import WebGL from 'three/addons/capabilities/WebGL.js';
+import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.164.0/build/three.module.js';
+import WebGL from 'https://cdn.jsdelivr.net/npm/three@0.164.0/examples/jsm/capabilities/WebGL.js';
 import { Viewer } from './viewer.js';
-import { SimpleDropzone } from 'simple-dropzone';
+import { SimpleDropzone } from 'https://cdn.jsdelivr.net/npm/simple-dropzone@1.0.0/dist/simple-dropzone.min.js';
 import { Validator } from './validator.js';
-import { Footer } from './components/footer';
-import queryString from 'query-string';
+import { Footer } from './components/footer.js';
+import queryString from 'https://cdn.jsdelivr.net/npm/query-string@7.1.1/dist/query-string.esm.js';
 
 window.THREE = THREE;
 window.VIEWER = {};
