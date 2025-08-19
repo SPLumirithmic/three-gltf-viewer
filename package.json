@@ -36,8 +36,5 @@
 	"devDependencies": {
 		"prettier": "^3.2.5",
 		"vite": "^5.1.8"
-	},
-	"vite": {
-		"base": "/three-gltf-viewer/"
 	}
 }
