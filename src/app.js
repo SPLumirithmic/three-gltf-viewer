@@ -76,6 +76,24 @@ class App {
 	}
 
 	/**
+	 * Loads a model directly from a remote URL.
+	 * @param {string} modelURL - The URL to the .gltf or .glb file
+	 */
+	loadFromUrl(modelURL) {
+		if (!modelURL.match(/\.(gltf|glb)$/)) {
+			this.onError('Provided URL does not point to a .gltf or .glb file.');
+			return;
+		}
+
+
+		console.info('button is clicked now it should show');
+
+
+		this.showSpinner();
+		this.view(modelURL, '', new Map());
+	}
+	
+	/**
 	 * Loads a fileset provided by user action.
 	 * @param  {Map<string, File>} fileMap
 	 */
@@ -159,5 +177,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	window.VIEWER.app = app;
 
-	console.info('[glTF Viewer] Debugging data exported as `window.VIEWER`.');
+	const urlBtn = document.getElementById('loadUrlBtn');
+
+	urlBtn.addEventListener('click', () => {
+
+		console.info('button event addded');
+
+
+		// Example: hardcoded model
+		const modelURL = 'https://raw.githubusercontent.com/SPLumirithmic/three-gltf-viewer/main/public/Mesh/Jay.glb';
+		if (modelURL) app.loadFromUrl(modelURL);
+	});
+	
+		console.info('[glTF Viewer] Debugging data exported as `window.VIEWER`.');
 });
